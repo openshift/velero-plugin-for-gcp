@@ -1,0 +1,14 @@
+git checkout v1.2.0
+git checkout -b 1.2.0-rebase
+
+git cherry-pick f80811a5616d30b3cf0ffed4e71c1c5fda73dc83 # adding Dockerfile.ubi
+# had to fix Dockerfile.ubi for modules
+git cherry-pick 0137d9c7fd6a6b31b503e3ebf251589f7257d929 # Wait for snapshot to be ready before restoring
+CONFLICT (modify/delete): Gopkg.lock deleted in HEAD and modified in 0137d9c (Wait for snapshot to be ready before restoring). Version 0137d9c (Wait for snapshot to be ready before restoring) of Gopkg.lock left in tree.
+rm -rf vendor
+git rm Gopkg.lock vendor/k8s.io/apimachinery/pkg/util/wait/doc.go vendor/k8s.io/apimachinery/pkg/util/wait/wait.go
+
+git cherry-pick dc64d98c56e8a0525616a0ba07b1dfbec8235851 # Add BZ automation to repo
+git cherry-pick 53fbfb5b60fc36d78d1991861bc43867c6244215 # Update PR-BZ automation mapping (#6)
+
+# new commit, rebase log
