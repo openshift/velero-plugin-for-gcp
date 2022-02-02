@@ -1,4 +1,4 @@
-FROM quay.io/konveyor/builder:latest AS builder
+FROM quay.io/konveyor/builder:v1.17.2 AS builder
 ENV GOPATH=$APP_ROOT
 COPY . $APP_ROOT/src/velero-plugin-for-gcp
 WORKDIR $APP_ROOT/src/velero-plugin-for-gcp
