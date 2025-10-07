@@ -13,3 +13,8 @@ COPY --from=builder /workspace/LICENSE /licenses/
 USER nobody:nogroup
 ENTRYPOINT ["/bin/bash", "-c", "cp /plugins/* /target/."]
 
+LABEL description="OpenShift API for Data Protection - Velero Plugin for GCP"
+LABEL io.k8s.description="OpenShift API for Data Protection - Velero Plugin for GCP"
+LABEL io.k8s.display-name="OADP Velero Plugin for GCP"
+LABEL io.openshift.tags="migration"
+LABEL summary="OpenShift API for Data Protection - Velero Plugin for GCP"
