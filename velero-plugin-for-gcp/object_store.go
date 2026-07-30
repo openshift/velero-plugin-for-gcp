@@ -214,7 +214,7 @@ func (o *ObjectStore) PutObject(bucket, key string, body io.Reader) error {
 
 func (o *ObjectStore) ObjectExists(bucket, key string) (bool, error) {
 	if _, err := o.bucketWriter.getAttrs(bucket, key); err != nil {
-		if err == storage.ErrObjectNotExist {
+		if errors.Is(err, storage.ErrObjectNotExist) {
 			return false, nil
 		}
 		return false, errors.WithStack(err)
