@@ -12,6 +12,8 @@ permissions:
 jobs:
   auto-request-review:
     name: Auto Request Review
+    # Run only in the upstream repository. Downstream copies skip this job because these reviewers are upstream maintainers.
+    if: github.repository == 'velero-io/velero-plugin-for-gcp'
     runs-on: ubuntu-latest
     steps:
       - name: Request a PR review based on files types/paths, and/or groups the author belongs to
